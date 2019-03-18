@@ -1,7 +1,8 @@
 <?php
 
-function compressImage($image_path) {
-    if(!is_file($image_path)) {
+function compressImage($image_path)
+{
+    if (!is_file($image_path)) {
         return false;
     }
     $ch = curl_init('https://tinypng.com/web/shrink');
@@ -13,6 +14,7 @@ function compressImage($image_path) {
     $response = curl_exec($ch);
     curl_close($ch);
     $response = json_decode($response, true);
+
     return $response;
 }
 
